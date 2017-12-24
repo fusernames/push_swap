@@ -42,7 +42,8 @@ t_pile 	*init_pile(int ac, char **av)
 	{
 		tmp = a;
 		a = malloc(sizeof(t_pile));
-		a->nb = atoi(av[i--]);
+		a->nb = atoi(av[i]);
+		a->index = atoi(av[i--]);
 		a->next = NULL;
 		a->previous = NULL;
 		if (tmp)

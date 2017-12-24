@@ -4,12 +4,15 @@
 # include <stdio.h>
 
 typedef struct		s_pile{
+	int		index;
 	int		nb;
 	struct s_pile		*next;
 	struct s_pile		*previous;
 }			t_pile;
 
 int	resolve(t_pile *a);
+int	quick_sort(t_pile **a, t_pile **b, int start, int end);
+void	go_to(t_pile **a, int nb, char c);
 
 int	lst_len(t_pile *a);
 void	print_lst(t_pile *a);

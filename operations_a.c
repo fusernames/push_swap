@@ -27,7 +27,7 @@ int	ra(t_pile **a)
 	(*a)->next = NULL;
 	tmp->previous = NULL;
 	*a = tmp;
-	printf("ra\n");
+	//printf("ra\n");
 	return (1);
 }
 
