@@ -10,15 +10,11 @@ int	main(int ac, char **av)
 		return (0);
 	a = init_pile(ac, av);
 	print_lst(a);
+	//resolve(&a, &b);
 	quick_sort(&a, &b, 0, lst_len(a) - 1);
-	/*
-	while(b)
-	{
-		printf("%d -> ", b->nb);
-		b = b->next;
-	}
-	printf("\n");*/
-	go_to(&a, 0, 'a');
+	while (b)
+		pa(&a, &b);
+	ps_goto(&a, 0, 'a');
 	print_lst(a);
 	return (0);
 }

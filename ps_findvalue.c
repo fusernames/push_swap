@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static int	find_value(t_pile *a, int min, int max)
+int		ps_findvalue(t_pile *a, int min, int max)
 {
 	int	i;
 
@@ -13,10 +13,4 @@ static int	find_value(t_pile *a, int min, int max)
 		i++;
 	}
 	return (-1);
-}
-
-int		resolve(t_pile **a, t_pile **b)
-{
-	find_value(*a, (*b)->index, 1);
-	return (1);
 }

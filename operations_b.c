@@ -40,8 +40,9 @@ int	rrb(t_pile **b)
 	last->previous->next = NULL;
 	last->previous = NULL;
 	last->next = *b;
+	(*b)->previous = last;
 	*b = last;
-	printf("rra\n");
+	printf("rrb\n");
 	return (1);
 }
 
