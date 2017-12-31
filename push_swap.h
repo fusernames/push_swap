@@ -14,6 +14,7 @@ int		resolve(t_pile **a, t_pile **b);
 int		quick_sort(t_pile **a, t_pile **b, int start, int end);
 int		insertion_sort(t_pile **a, t_pile **b, int start, int end);
 int		test(t_pile **a, t_pile **b);
+void	split(t_pile **a, t_pile **b, int start, int end);
 
 int		is_sorted(t_pile *a, int start, int end);
 

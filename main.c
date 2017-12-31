@@ -11,12 +11,9 @@ int	main(int ac, char **av)
 	a = init_pile(ac, av);
 	print_lst(a);
 	//resolve(&a, &b);
-	//quick_sort(&a, &b, 0, lst_len(a) - 1);
-	test(&a, &b);
-	insertion_sort(&a, &b, 0, lst_len(b) - 1);
-	while (b)
-		pa(&a, &b);
-	ps_goto(&a, 0, 'a');
-	print_lst(a);
+	split(&a, &b, 0, lst_len(a) - 1);
+	//test(&a, &b);
+	//insertion_sort(&a, &b, 0, lst_len(b) - 1);
+	print_lst(b);
 	return (0);
 }
