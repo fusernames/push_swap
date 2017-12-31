@@ -1,10 +1,10 @@
 #include "push_swap.h"
 
-void		ps_goto(t_pile **b, int nb, char c)
+void		ps_gotorange(t_pile **b, int start, int end, char c)
 {
 	int		i;
 
-	i = ps_findpath(*b, nb, nb);
+	i = ps_findpath(*b, start, end);
 	if (i > 0)
 	{
 		while (i--)

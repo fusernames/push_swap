@@ -20,20 +20,52 @@ int			is_sorted(t_pile *a, int start, int end)
 	return (1);
 }
 
-int			quick_sort(t_pile **a, t_pile **b, int start, int end)
+static int	quick_sort_recursive(t_pile **a, t_pile **b, int start, int end)
 {
 	int		pivot;
 	int		nb_ra;
 
 	nb_ra = 0;
 	pivot = (start + end) / 2;
+	ps_gotorange(b, start, end, 'b');
+	if (end <= start || is_sorted(*b, start, end))
+		return (0);
 	printf("START = %d END = %d | PIVOT = %d\n", start, end, pivot);
+	while (ps_findvalue(*b, pivot, end) > -1)
+	{
+		if ((*b)->index == pivot)
+		{
+			pa(a,b);
+			ra(a);
+		}
+		else if ((*b)->index > pivot)
+			pa(a, b);
+		else if ((*b)->index < pivot)
+		{
+			if (nb_ra == 0)
+				nb_ra = (*b)->index;
+			rb(b);
+		}
+	}
+	ps_goto(b, nb_ra, 'b');
+	ps_goto(a, pivot, 'a');
+	while (*a)
+		pb(a, b);
+	quick_sort_recursive(a, b, pivot + 1, end);
+	quick_sort_recursive(a, b, start, pivot - 1);
+	return (1);
+}
+
+int			quick_sort(t_pile **a, t_pile **b, int start, int end)
+{
+	int		pivot;
+
+	pivot = (start + end) / 2;
+	//printf("START = %d END = %d | PIVOT = %d\n", start, end, pivot);
 	if (end <= start || is_sorted(*a, start, end))
 		return (0);
-	while ((*a)->index < start || (*a)->index > end)
-		ra(a);
-	if (end - start <= 25)
-		return (insertion_sort(a, b, start, end));
+	ps_gotorange(a, start, end, 'a');
+	print_lst(*a);
 	while (ps_findvalue(*a, start, pivot) > -1)
 	{
 		if ((*a)->index == pivot)
@@ -44,18 +76,13 @@ int			quick_sort(t_pile **a, t_pile **b, int start, int end)
 		if ((*a)->index < pivot)
 			pb(a, b);
 		else if ((*a)->index > pivot)
-		{
-			if (nb_ra == 0)
-				nb_ra = (*a)->index;
 			ra(a);
-		}
 	}
-	if (nb_ra)
-		ps_goto(a, nb_ra, 'a');
 	ps_goto(b, pivot, 'b');
-	while (ps_findvalue(*b, start, pivot) > -1)
-		pa(a, b);
-	quick_sort(a, b, start, pivot - 1);
-	quick_sort(a, b, pivot + 1, end);
+	while (ps_findvalue(*a, start, end) > -1)
+		pb(a, b);
+	print_lst(*b);
+	quick_sort_recursive(a, b, pivot + 1, end);
+	quick_sort_recursive(a, b, start, pivot - 1);
 	return (1);
 }

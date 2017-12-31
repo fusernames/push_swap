@@ -13,6 +13,7 @@ typedef struct		s_pile{
 int		resolve(t_pile **a, t_pile **b);
 int		quick_sort(t_pile **a, t_pile **b, int start, int end);
 int		insertion_sort(t_pile **a, t_pile **b, int start, int end);
+int		test(t_pile **a, t_pile **b);
 
 int		is_sorted(t_pile *a, int start, int end);
 
@@ -32,6 +33,8 @@ int		pb(t_pile **a, t_pile **b);
 int		ss(t_pile **a, t_pile **b);
 
 void	ps_goto(t_pile **a, int nb, char c);
+void	ps_gotorange(t_pile **a, int start, int end, char c);
+int		ps_findpath(t_pile *a, int min, int max);
 int		ps_findvalue(t_pile *a, int min, int max);
 
 #endif

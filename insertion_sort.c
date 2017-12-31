@@ -9,16 +9,16 @@ static int	insertion_move(t_pile *b, int nb)
 	max = -1;
 	while (b)
 	{
-		if (b->nb > max)
-			max = b->nb;
-		if (b->nb < nb && b->nb > min)
+		if (b->nb < min || min == -1)
 			min = b->nb;
+		if (b->nb > nb && (b->nb < max || max == -1))
+			max = b->nb;
 		b = b->next;
 	}
-	if (min > -1)
-		return (min);
-	else
+	if (max > -1)
 		return (max);
+	else
+		return (min);
 }
 
 int			insertion_sort(t_pile **a, t_pile **b, int start, int end)
@@ -28,26 +28,10 @@ int			insertion_sort(t_pile **a, t_pile **b, int start, int end)
 	i = start;
 	while (i <= end)
 	{
-		//print_lst(*b);
-		if ((*a) && (*a)->next && i < end &&
-		((*a)->index == start || (*a)->next->index == start))
-		{
-			if ((*a)->next->index == start)
-				sa(a);
-			ra(a);
-			start++;
-		}
-		else
-		{
-			if (lst_len(*b) > 1)
-				ps_goto(b, insertion_move(*b, (*a)->nb), 'b');
-			pb(a, b);
-		}
+		if (lst_len(*a) > 1)
+			ps_goto(a, insertion_move(*a, (*b)->nb), 'a');
+		pa(a, b);
 		i++;
 	}
-	if (*b)
-		ps_goto(b, end, 'b');
-	while (*b)
-		pa(a,b);
 	return (1);
 }
