@@ -10,19 +10,22 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	push_swap
-FLAGS	=	-Wall -Werror -Wextra
-SRC		=	$(wildcard *.c)
-OBJ		=	$(SRC:.c=.o)
-LIBFT	=	libft/libft.a
+NAME		=	push_swap
+FLAGS		=	-Wall -Werror -Wextra
+LIBFT		=	libft/libft.a
+LIBFT_INCLUDES =	libft/$(INCLUDES)
+INCLUDES	=   includes
+SRC			=	$(wildcard *.c)
+OBJ			=	$(SRC:.c=.o)
 
 all: $(NAME)
+	cd libft && $(MAKE) all
 
-$(NAME): $(OBJ) $(NAME).h
-	@gcc $(OBJ) -o $(NAME) $(FLAGS) 
+$(NAME): $(OBJ) $(INCLUDES)/$(NAME).h $(LIBFT)
+	@gcc $(OBJ) -o $(NAME) $(FLAGS) -I $(INCLUDES) -I $(LIBFT_INCLUDES) $(LIBFT)
 
 %.o: %.c
-	@gcc -c $< -o $@ $(FLAGS)
+	@gcc -c $< -o $@ $(FLAGS) -I $(INCLUDES) -I $(LIBFT_INCLUDES)
 
 clean:
 	@rm -rf $(OBJ)

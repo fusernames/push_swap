@@ -29,28 +29,3 @@ t_pile	*get_last_elem(t_pile *a)
 		a = a->next;
 	return (a);
 }
-
-t_pile 	*init_pile(int ac, char **av)
-{
-	t_pile	*a;
-	t_pile	*tmp;
-	int	i;
-
-	a = NULL;
-	i = ac - 1;
-	while(i > 0)
-	{
-		tmp = a;
-		a = malloc(sizeof(t_pile));
-		a->nb = atoi(av[i]);
-		a->index = atoi(av[i--]);
-		a->next = NULL;
-		a->previous = NULL;
-		if (tmp)
-		{
-			a->next = tmp;
-			tmp->previous = a;
-		}
-	}
-	return (a);
-}

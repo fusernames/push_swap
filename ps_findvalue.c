@@ -7,7 +7,7 @@ int		ps_findvalue(t_pile *a, int min, int max)
 	i = 0;
 	while (a)
 	{
-		if (a->nb >= min && a->nb <= max)
+		if (a->index >= min && a->index <= max)
 			return (i);
 		a = a->next;
 		i++;
