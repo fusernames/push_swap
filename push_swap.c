@@ -10,14 +10,16 @@ int	main(int ac, char **av)
 		return (0);
 	if ((a = parser(ac, av)) == NULL || check_duplicate(a))
 	{
+		lst_free(a);
 		ft_putstr("Error\n");
 		return (0);
 	}
-	print_lst(a);
+	lst_print(a);
 	resolve(&a, &b);
 	while (b)
 		pa(&a, &b);
 	ps_goto(&a, 0, 'a');
-	print_lst(a);
+	lst_print(a);
+	lst_free(a);
 	return (0);
 }

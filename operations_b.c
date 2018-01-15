@@ -21,7 +21,7 @@ int	rb(t_pile **b)
 	if (*b == NULL || (*b)->next == NULL)
 		return (0);
 	tmp = (*b)->next;
-	last = get_last_elem(*b);
+	last = lst_getlast(*b);
 	last->next = *b;
 	(*b)->previous = last;
 	(*b)->next = NULL;
@@ -35,7 +35,7 @@ int	rrb(t_pile **b)
 {
 	t_pile	*last;
 
-	if((last = get_last_elem(*b)) == NULL)
+	if((last = lst_getlast(*b)) == NULL)
 		return (0);
 	last->previous->next = NULL;
 	last->previous = NULL;

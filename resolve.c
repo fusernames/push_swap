@@ -82,11 +82,13 @@ int			resolve(t_pile **a, t_pile **b)
 	int		index2;
 	int		path_a;
 	int		path_b;
+	int		max;
 
 	if (lst_len(*a) < 1)
 		return (0);
 	index = find_min(*a);
-	path_a = ps_findpath(*a, index, index + (lst_len(*a) / 5));
+	max = index + (lst_len(*a) / 5);
+	path_a = ps_findpath(*a, index, max);
 	index2 = insertion_move(*b, ps_findindex(*a, path_a));
 	if (index2 > -1)
 		path_b = ps_findpath(*b, index2, index2);

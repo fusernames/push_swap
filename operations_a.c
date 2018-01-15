@@ -21,7 +21,7 @@ int	ra(t_pile **a)
 	if (*a == NULL || (*a)->next == NULL)
 		return (0);
 	tmp = (*a)->next;
-	last = get_last_elem(*a);
+	last = lst_getlast(*a);
 	last->next = *a;
 	(*a)->previous = last;
 	(*a)->next = NULL;
@@ -35,7 +35,7 @@ int	rra(t_pile **a)
 {
 	t_pile	*last;
 
-	if((last = get_last_elem(*a)) == NULL)
+	if((last = lst_getlast(*a)) == NULL)
 		return (0);
 	last->previous->next = NULL;
 	last->previous = NULL;

@@ -19,18 +19,20 @@ SRC			=	$(wildcard *.c)
 OBJ			=	$(SRC:.c=.o)
 
 all: $(NAME)
-	cd libft && $(MAKE) all
 
-$(NAME): $(OBJ) $(INCLUDES)/$(NAME).h $(LIBFT)
+$(NAME): $(OBJ) $(INCLUDES)/$(NAME).h
+	@$(MAKE) -C libft
 	@gcc $(OBJ) -o $(NAME) $(FLAGS) -I $(INCLUDES) -I $(LIBFT_INCLUDES) $(LIBFT)
 
 %.o: %.c
 	@gcc -c $< -o $@ $(FLAGS) -I $(INCLUDES) -I $(LIBFT_INCLUDES)
 
 clean:
+	@$(MAKE) clean -C libft
 	@rm -rf $(OBJ)
 
 fclean: clean
+	@$(MAKE) fclean -C libft
 	@rm -rf $(NAME)
 
 re: fclean all

@@ -28,14 +28,14 @@ int		rr(t_pile **a, t_pile **b)
 	if (*b == NULL || (*b)->next == NULL)
 		return (0);
 	tmp = (*a)->next;
-	last = get_last_elem(*a);
+	last = lst_getlast(*a);
 	last->next = *a;
 	(*a)->previous = last;
 	(*a)->next = NULL;
 	tmp->previous = NULL;
 	*a = tmp;
 	tmp = (*b)->next;
-	last = get_last_elem(*b);
+	last = lst_getlast(*b);
 	last->next = *b;
 	(*b)->previous = last;
 	(*b)->next = NULL;
@@ -49,16 +49,16 @@ int		rrr(t_pile **a, t_pile **b)
 {
 	t_pile	*last;
 
-	if((last = get_last_elem(*a)) == NULL)
+	if((last = lst_getlast(*a)) == NULL)
 		return (0);
-	if(get_last_elem(*b) == NULL)
+	if(lst_getlast(*b) == NULL)
 		return (0);
 	last->previous->next = NULL;
 	last->previous = NULL;
 	last->next = *a;
 	(*a)->previous = last;
 	*a = last;
-	last = get_last_elem(*b);
+	last = lst_getlast(*b);
 	last->previous->next = NULL;
 	last->previous = NULL;
 	last->next = *b;

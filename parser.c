@@ -38,6 +38,7 @@ static void		create_index(t_pile *a, int index)
 	create_index(start, index + 1);
 }
 
+
 t_pile			*parser(int ac, char **av)
 {
 	t_pile	*a;
@@ -55,9 +56,11 @@ t_pile			*parser(int ac, char **av)
 		{
 			a = new_elem(a);
 			if (ps_atoi(tab[j], &(a->nb)))
+			{
+				lst_free(a);
 				return (NULL);
-			free(tab[j]);
-			j++;
+			}
+			free(tab[j++]);
 		}
 		free(tab[j]);
 		free(tab);

@@ -20,9 +20,9 @@ void				resolve_findbestway(t_pile *a, t_pile *b, int *path_a, int *path_b);
 int					is_sorted(t_pile *a, int start, int end);
 
 int					lst_len(t_pile *a);
-void				print_lst(t_pile *a);
-t_pile				*get_last_elem(t_pile *a);
-t_pile				*init_pile(int ac, char **av);
+void				lst_print(t_pile *a);
+void				lst_free(t_pile *a);
+t_pile				*lst_getlast(t_pile *a);
 
 void				ps_goto(t_pile **a, int index, char c);
 int					ps_findpath(t_pile *a, int min, int max);
