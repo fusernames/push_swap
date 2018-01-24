@@ -30,11 +30,33 @@ int		sort3(t_pile **a)
 	return (1);
 }
 
-int		sort(t_pile **a, int len)
+static int		is_sorted(t_pile *a)
 {
-	if (len == 1)
-		sa(a);
-	else if (len == 2)
-		sort3(a);
+	while (a)
+	{
+		if (a->next && a->index > a->next->index)
+			return (0);
+		a = a->next;
+	}
 	return (1);
+}
+
+int		short_resolve(t_pile **a, t_pile **b)
+{
+	int		index;
+
+	index = 0;
+	while (!is_sorted(*a) && lst_len(*a) > 3)
+	{
+		ps_goto(a, index, 'a');
+		if (!is_sorted(*a))
+			pb(a, b);
+		index++;
+	}
+	if (lst_len(*a) == 3)
+	{
+		sort3(a);
+		ps_goto(a, index, 'a');
+	}
+	return (0);
 }

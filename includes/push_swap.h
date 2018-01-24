@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/24 19:59:14 by alcaroff          #+#    #+#             */
+/*   Updated: 2018/01/24 20:01:27 by alcaroff         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <stdlib.h>
@@ -16,8 +28,7 @@ int					check_duplicate(t_pile *a);
 t_pile				*parser(int ac, char **av);
 int					resolve(t_pile **a, t_pile **b);
 void				resolve_findbestway(t_pile *a, t_pile *b, int *path_a, int *path_b);
-
-int					is_sorted(t_pile *a, int start, int end);
+int					short_resolve(t_pile **a, t_pile **b);
 
 int					lst_len(t_pile *a);
 void				lst_print(t_pile *a);

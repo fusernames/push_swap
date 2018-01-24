@@ -5,6 +5,8 @@ int		check_characters(char **av, int ac)
 	int	i;
 	int	j;
 
+	j = 1;
+	i = 0;
 	while (j < ac)
 	{
 		while (av[j][i])

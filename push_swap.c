@@ -15,7 +15,10 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	lst_print(a);
-	resolve(&a, &b);
+	if (lst_len(a) > 10)
+		resolve(&a, &b);
+	else
+		short_resolve(&a, &b);
 	while (b)
 		pa(&a, &b);
 	ps_goto(&a, 0, 'a');
