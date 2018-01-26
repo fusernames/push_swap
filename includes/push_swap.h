@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 19:59:14 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/01/24 20:01:27 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/01/25 18:48:43 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int					lst_len(t_pile *a);
 void				lst_print(t_pile *a);
 void				lst_free(t_pile *a);
 t_pile				*lst_getlast(t_pile *a);
+t_pile				*lst_getmax(t_pile *a);
 
 void				ps_goto(t_pile **a, int index, char c);
 int					ps_findpath(t_pile *a, int min, int max);

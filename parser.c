@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/25 21:20:04 by alcaroff          #+#    #+#             */
+/*   Updated: 2018/01/25 21:21:50 by alcaroff         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static t_pile	*new_elem(t_pile *a)
@@ -5,7 +17,6 @@ static t_pile	*new_elem(t_pile *a)
 	t_pile	*new;
 
 	new = NULL;
-
 	new = malloc(sizeof(t_pile));
 	new->nb = 0;
 	new->index = -1;
@@ -38,7 +49,6 @@ static void		create_index(t_pile *a, int index)
 	create_index(start, index + 1);
 }
 
-
 t_pile			*parser(int ac, char **av)
 {
 	t_pile	*a;
@@ -48,7 +58,7 @@ t_pile			*parser(int ac, char **av)
 
 	a = NULL;
 	i = 1;
-	while(i < ac)
+	while (i < ac)
 	{
 		tab = ft_splitwhitespace(av[i]);
 		j = 0;

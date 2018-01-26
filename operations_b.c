@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations_b.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/25 21:14:27 by alcaroff          #+#    #+#             */
+/*   Updated: 2018/01/25 21:19:14 by alcaroff         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	sb(t_pile **b)
@@ -9,7 +21,7 @@ int	sb(t_pile **b)
 	tmp = (*b)->nb;
 	(*b)->nb = (*b)->next->nb;
 	(*b)->next->nb = tmp;
-	printf("sb\n");
+	ft_putstr("sb\n");
 	return (1);
 }
 
@@ -27,7 +39,7 @@ int	rb(t_pile **b)
 	(*b)->next = NULL;
 	tmp->previous = NULL;
 	*b = tmp;
-	printf("rb\n");
+	ft_putstr("rb\n");
 	return (1);
 }
 
@@ -35,14 +47,14 @@ int	rrb(t_pile **b)
 {
 	t_pile	*last;
 
-	if((last = lst_getlast(*b)) == NULL)
+	if ((last = lst_getlast(*b)) == NULL)
 		return (0);
 	last->previous->next = NULL;
 	last->previous = NULL;
 	last->next = *b;
 	(*b)->previous = last;
 	*b = last;
-	printf("rrb\n");
+	ft_putstr("rrb\n");
 	return (1);
 }
 
@@ -60,6 +72,6 @@ int	pb(t_pile **a, t_pile **b)
 	(*a)->next = *b;
 	*b = *a;
 	*a = tmp;
-	printf("pb\n");
+	ft_putstr("pb\n");
 	return (1);
 }

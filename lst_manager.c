@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lst_manager.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/25 21:18:40 by alcaroff          #+#    #+#             */
+/*   Updated: 2018/01/25 21:18:47 by alcaroff         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int	lst_len(t_pile *a)
+int		lst_len(t_pile *a)
 {
 	int	i;
 
@@ -17,7 +29,7 @@ void	lst_print(t_pile *a)
 {
 	while (a)
 	{
-		printf("%d - ", a->nb);
+		printf("%d - ", a->index);
 		a = a->next;
 	}
 	printf("\n");
@@ -50,4 +62,18 @@ t_pile	*lst_getlast(t_pile *a)
 	while (a->next)
 		a = a->next;
 	return (a);
+}
+
+t_pile	*lst_getmax(t_pile *a)
+{
+	t_pile	*max;
+
+	max = NULL;
+	while (a)
+	{
+		if (!max || a->index > max->index)
+			max = a;
+		a = a->next;
+	}
+	return (max);
 }

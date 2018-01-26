@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   resolve_findbestway.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/25 21:32:41 by alcaroff          #+#    #+#             */
+/*   Updated: 2018/01/25 21:33:29 by alcaroff         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	move_cost(int path_a, int path_b)
@@ -15,7 +27,7 @@ static int	move_cost(int path_a, int path_b)
 
 void		resolve_findbestway(t_pile *a, t_pile *b, int *path_a, int *path_b)
 {
-	int 	len_a;
+	int		len_a;
 	int		len_b;
 	int		pa;
 	int		pb;

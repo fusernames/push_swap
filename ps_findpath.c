@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps_findpath.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/25 21:22:30 by alcaroff          #+#    #+#             */
+/*   Updated: 2018/01/25 21:30:58 by alcaroff         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int		ps_findpath(t_pile *a, int min, int max)
@@ -5,7 +17,7 @@ int		ps_findpath(t_pile *a, int min, int max)
 	int		i;
 	int		r;
 	int		rr;
-	t_pile 	*cpy;
+	t_pile	*cpy;
 
 	r = -1;
 	rr = -1;

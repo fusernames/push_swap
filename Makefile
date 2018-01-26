@@ -6,7 +6,7 @@
 #    By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 15:15:20 by alcaroff          #+#    #+#              #
-#    Updated: 2018/01/24 20:10:22 by alcaroff         ###   ########.fr        #
+#    Updated: 2018/01/25 20:56:25 by alcaroff         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,13 @@ INCLUDES	=   includes
 SRC			=	$(wildcard *.c)
 OBJ			=	$(SRC:.c=.o)
 
-all: $(NAME)
+all: $(LIBFT) $(NAME)
 
 $(NAME): $(OBJ)
+	gcc $(OBJ) -o $(NAME) $(FLAGS) -I $(INCLUDES) -I $(LIBFT_INCLUDES) $(LIBFT)
+
+$(LIBFT):
 	@$(MAKE) -C libft
-	@gcc $(OBJ) -o $(NAME) $(FLAGS) -I $(INCLUDES) -I $(LIBFT_INCLUDES) $(LIBFT)
 
 %.o: %.c
 	@gcc -c $< -o $@ $(FLAGS) -I $(INCLUDES) -I $(LIBFT_INCLUDES)
