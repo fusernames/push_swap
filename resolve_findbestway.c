@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 21:32:41 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/01/25 21:33:29 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/01/28 19:03:54 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,41 +25,45 @@ static int	move_cost(int path_a, int path_b)
 	return (0);
 }
 
+static int	negative(int path, t_pile *a)
+{
+	int		len;
+
+	len = lst_len(a);
+	return (path - len);
+}
+
 void		resolve_findbestway(t_pile *a, t_pile *b, int *path_a, int *path_b)
 {
-	int		len_a;
-	int		len_b;
 	int		pa;
 	int		pb;
 	int		len;
 
-	len_a = lst_len(a);
-	len_b = lst_len(b);
 	pa = *path_a;
 	pb = *path_b;
 	if (pa == 0 || pb == 0)
 		return ;
 	if (pa < 0)
-		pa += len_a;
+		pa += lst_len(a);
 	if (pb < 0)
-		pb += len_b;
+		pb += lst_len(b);
 	len = move_cost(*path_a, *path_b);
-	if (len > move_cost(pa - len_a, pb - len_b))
+	if (len > move_cost(negative(pa, a), negative(pb, b)))
 	{
-		*path_a = pa - len_a;
-		*path_b = pb - len_b;
+		*path_a = negative(pa, a);
+		*path_b = negative(pb, b);
 		len = move_cost(*path_a, *path_b);
 	}
-	if (len > move_cost(pa - len_a, pb))
+	if (len > move_cost(negative(pa, a), pb))
 	{
-		*path_a = pa - len_a;
+		*path_a = negative(pa, a);
 		*path_b = pb;
 		len = move_cost(*path_a, *path_b);
 	}
-	if (len > move_cost(pa, pb - len_b))
+	if (len > move_cost(pa, negative(pb, b)))
 	{
 		*path_a = pa;
-		*path_b = pb - len_b;
+		*path_b = negative(pb, b);
 		len = move_cost(*path_a, *path_b);
 	}
 	if (len > move_cost(pa, pb))

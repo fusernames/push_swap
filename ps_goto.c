@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 21:31:26 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/01/25 21:31:35 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/01/28 16:41:39 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void		ps_goto(t_pile **b, int nb, char c)
 		while (i--)
 		{
 			if (c == 'b')
-				rb(b);
+				exec("rb", NULL, b, 0);
 			else
-				ra(b);
+				exec("ra", b, NULL, 0);
 		}
 	}
 	else if (i < 0)
@@ -32,9 +32,9 @@ void		ps_goto(t_pile **b, int nb, char c)
 		while (i++)
 		{
 			if (c == 'b')
-				rrb(b);
+				exec("rrb", NULL, b, 0);
 			else
-				rra(b);
+				exec("rra", b, NULL, 0);
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 20:55:07 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/01/25 21:03:05 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/01/28 17:10:35 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ static int	is_sorted(t_pile *a)
 static void	sort_3(t_pile **a, int index)
 {
 	if ((*a)->index == index)
-		ra(a);
-	sa(a);
+		exec("ra", a, NULL, 0);
+	exec("sa", a, NULL, 0);
 }
 
 int			short_resolve(t_pile **a, t_pile **b)
@@ -56,7 +56,7 @@ int			short_resolve(t_pile **a, t_pile **b)
 	{
 		ps_goto(a, index, 'a');
 		if (!is_sorted(*a))
-			pb(a, b);
+			exec("pb", a, b, 0);
 		index++;
 	}
 	if (lst_len(*a) == 3)

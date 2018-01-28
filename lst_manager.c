@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 21:18:40 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/01/25 21:18:47 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/01/28 18:01:44 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ void	lst_print(t_pile *a)
 {
 	while (a)
 	{
-		printf("%d - ", a->index);
+		printf("%d - ", a->nb);
 		a = a->next;
 	}
 	printf("\n");
 }
 
-void	lst_free(t_pile *a)
+t_pile	*lst_free(t_pile *a)
 {
 	t_pile	*cpy;
 	t_pile	*tmp;
@@ -55,6 +55,7 @@ void	lst_free(t_pile *a)
 		free(a);
 		a = tmp;
 	}
+	return (NULL);
 }
 
 t_pile	*lst_getlast(t_pile *a)

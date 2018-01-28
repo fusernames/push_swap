@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 21:20:04 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/01/25 21:21:50 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/01/28 18:22:21 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,21 +60,17 @@ t_pile			*parser(int ac, char **av)
 	i = 1;
 	while (i < ac)
 	{
-		tab = ft_splitwhitespace(av[i]);
+		tab = ft_splitwhitespace(av[i++]);
 		j = 0;
 		while (tab[j][0])
 		{
 			a = new_elem(a);
 			if (ps_atoi(tab[j], &(a->nb)))
-			{
-				lst_free(a);
-				return (NULL);
-			}
+				return (lst_free(a));
 			free(tab[j++]);
 		}
 		free(tab[j]);
 		free(tab);
-		i++;
 	}
 	while (a && a->previous)
 		a = a->previous;

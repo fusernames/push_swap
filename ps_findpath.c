@@ -6,18 +6,34 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 21:22:30 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/01/25 21:30:58 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/01/28 18:13:18 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ps_findpath(t_pile *a, int min, int max)
+static int	reverse(t_pile *a, int min, int max)
+{
+	int		i;
+	int		rr;
+
+	i = 1;
+	rr = -1;
+	while (a)
+	{
+		if (a->index >= min && a->index <= max && rr == -1)
+			rr = i;
+		a = a->previous;
+		i++;
+	}
+	return (rr);
+}
+
+int			ps_findpath(t_pile *a, int min, int max)
 {
 	int		i;
 	int		r;
 	int		rr;
-	t_pile	*cpy;
 
 	r = -1;
 	rr = -1;
@@ -29,16 +45,8 @@ int		ps_findpath(t_pile *a, int min, int max)
 		if (a->index >= min && a->index <= max && r == -1)
 			r = i;
 		if (a->next == NULL)
-			cpy = a;
+			rr = reverse(a, min, max);
 		a = a->next;
-		i++;
-	}
-	i = 1;
-	while (cpy)
-	{
-		if (cpy->index >= min && cpy->index <= max && rr == -1)
-			rr = i;
-		cpy = cpy->previous;
 		i++;
 	}
 	return (r <= rr ? r : -rr);

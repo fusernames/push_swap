@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 21:32:28 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/01/25 21:32:29 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/01/28 18:17:47 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,42 +26,48 @@ static int	find_min(t_pile *a)
 	return (min);
 }
 
+static void	move_split(t_pile **a, t_pile **b, int *path_a, int *path_b)
+{
+	if (*path_a > 0)
+	{
+		exec("ra", a, b, 0);
+		(*path_a)--;
+	}
+	else if (*path_a < 0)
+	{
+		exec("rra", a, b, 0);
+		(*path_a)++;
+	}
+	else if (*path_b > 0)
+	{
+		exec("rb", a, b, 0);
+		(*path_b)--;
+	}
+	else if (*path_b < 0)
+	{
+		exec("rrb", a, b, 0);
+		(*path_b)++;
+	}
+}
+
 static void	move(t_pile **a, t_pile **b, int path_a, int path_b)
 {
 	while (path_a || path_b)
 	{
 		if (path_a > 0 && path_b > 0)
 		{
-			rr(a, b);
+			exec("rr", a, b, 0);
 			path_a--;
 			path_b--;
 		}
 		else if (path_a < 0 && path_b < 0)
 		{
-			rrr(a, b);
+			exec("rrr", a, b, 0);
 			path_a++;
 			path_b++;
 		}
-		else if (path_a > 0)
-		{
-			ra(a);
-			path_a--;
-		}
-		else if (path_a < 0)
-		{
-			rra(a);
-			path_a++;
-		}
-		else if (path_b > 0)
-		{
-			rb(b);
-			path_b--;
-		}
-		else if (path_b < 0)
-		{
-			rrb(b);
-			path_b++;
-		}
+		else
+			move_split(a, b, &path_a, &path_b);
 	}
 }
 
@@ -108,7 +114,7 @@ int			resolve(t_pile **a, t_pile **b)
 		path_b = 0;
 	resolve_findbestway(*a, *b, &path_a, &path_b);
 	move(a, b, path_a, path_b);
-	pb(a, b);
+	exec("pb", a, b, 0);
 	resolve(a, b);
 	return (0);
 }
