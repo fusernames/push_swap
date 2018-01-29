@@ -6,25 +6,11 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 21:32:28 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/01/28 18:17:47 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/01/29 23:22:40 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	find_min(t_pile *a)
-{
-	int		min;
-
-	min = -1;
-	while (a)
-	{
-		if (a->index < min || min == -1)
-			min = a->index;
-		a = a->next;
-	}
-	return (min);
-}
 
 static void	move_split(t_pile **a, t_pile **b, int *path_a, int *path_b)
 {
@@ -94,22 +80,56 @@ static int	insertion_move(t_pile *b, int index)
 		return (max);
 }
 
+/*static void	resolve_path(t_pile *a, t_pile *b, int *path_a, int *path_b)
+{
+	int		i;
+	int		index_b;
+	int		max;
+	int		cost;
+	int		p[2];
+
+	cost = -1;
+	i = ps_findmin(a);
+	max = i + (lst_len(a) / 5);
+	while (i <= max)
+	{
+		while (i <= max && (p[0] = ps_findpath(a, i, i)) == -1)
+			i++;
+		if (i > max)
+			return ;
+		index_b = insertion_move(b, i);
+		if (index_b > -1)
+			p[1] = ps_findpath(b, index_b, index_b);
+		else
+			p[1] = 0;
+		if (cost == -1 || cost > ps_movecost(p[0], p[1]))
+		{
+			cost = ps_movecost(p[0], p[1]);
+			printf("a = %d | b = %d\n", p[0], p[1]);
+			printf("cost = %d\n", cost);
+			*path_a = p[0];
+			*path_b = p[1];
+		}
+		i++;
+	}
+}*/
+
 int			resolve(t_pile **a, t_pile **b)
 {
-	int		index;
-	int		index2;
+	int		max;
+	int		i;
+	int		index_b;
 	int		path_a;
 	int		path_b;
-	int		max;
 
 	if (lst_len(*a) < 1)
 		return (0);
-	index = find_min(*a);
-	max = index + (lst_len(*a) / 5);
-	path_a = ps_findpath(*a, index, max);
-	index2 = insertion_move(*b, ps_findindex(*a, path_a));
-	if (index2 > -1)
-		path_b = ps_findpath(*b, index2, index2);
+	i = ps_findmin(*a);
+	max = i + (lst_len(*a) / 5);
+	path_a = ps_findpath(*a, i, max);
+	index_b = insertion_move(*b, ps_findindex(*a, path_a));
+	if (index_b > -1)
+		path_b = ps_findpath(*b, index_b, index_b);
 	else
 		path_b = 0;
 	resolve_findbestway(*a, *b, &path_a, &path_b);

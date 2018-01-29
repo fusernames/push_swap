@@ -6,7 +6,7 @@
 #    By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 15:15:20 by alcaroff          #+#    #+#              #
-#    Updated: 2018/01/28 16:39:11 by alcaroff         ###   ########.fr        #
+#    Updated: 2018/01/29 22:46:33 by alcaroff         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,8 @@ SRC_PS			=	\
 	ps_findpath.c \
 	ps_findvalue.c \
 	ps_goto.c \
+	ps_findmin.c \
+	ps_movecost.c \
 	resolve.c \
 	resolve_findbestway.c \
 	resolve_short.c

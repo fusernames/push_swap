@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 19:59:14 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/01/28 18:00:07 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/01/29 22:46:20 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int					ps_findpath(t_pile *a, int min, int max);
 int					ps_findvalue(t_pile *a, int min, int max);
 int					ps_findindex(t_pile *a, int path);
 int					ps_atoi(char *s, int *index);
+int					ps_findmin(t_pile *a);
+int					ps_movecost(int path_a, int path_b);
 
 int					exec(char *s, t_pile **a, t_pile **b, int mute);
 int					s(t_pile **a);
