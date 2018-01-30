@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 19:59:14 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/01/29 22:46:20 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/01/30 19:41:38 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int					check_characters(char **av, int ac);
 int					check_duplicate(t_pile *a);
 t_pile				*parser(int ac, char **av);
 int					resolve(t_pile **a, t_pile **b);
+void				resolve_path(t_pile *a, t_pile *b, int *path_a,
+		int *path_b);
 void				resolve_findbestway(t_pile *a, t_pile *b, int *path_a,
 		int *path_b);
 int					short_resolve(t_pile **a, t_pile **b);

@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 21:31:55 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/01/29 22:15:36 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/01/30 19:44:20 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	main(int ac, char **av)
 		ft_putstr("Error\n");
 		return (0);
 	}
-	//lst_print(a);
 	if (lst_len(a) > 10)
 		resolve(&a, &b);
 	else
@@ -36,7 +35,6 @@ int	main(int ac, char **av)
 	while (b)
 		exec("pa", &a, &b, 0);
 	ps_goto(&a, 0, 'a');
-	//lst_print(a);
 	lst_free(a);
 	return (0);
 }
