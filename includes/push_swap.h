@@ -6,14 +6,13 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 19:59:14 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/01/30 19:41:38 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/01/30 20:48:07 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <stdlib.h>
-# include <stdio.h>
 # include "libft.h"
 # include "get_next_line.h"
 
@@ -53,5 +52,7 @@ int					s(t_pile **a);
 int					r(t_pile **a);
 int					rr(t_pile **a);
 int					p(t_pile **a, t_pile **b);
+
+int					error(void);
 
 #endif

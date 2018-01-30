@@ -6,7 +6,7 @@
 #    By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 15:15:20 by alcaroff          #+#    #+#              #
-#    Updated: 2018/01/30 19:23:19 by alcaroff         ###   ########.fr        #
+#    Updated: 2018/01/30 20:47:46 by alcaroff         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRC				=	\
 	op.c \
 	exec.c \
 	parser.c \
-	ps_atoi.c
+	ps_atoi.c \
+	error.c
 SRC_PS			=	\
 	push_swap.c \
 	ps_findindex.c \

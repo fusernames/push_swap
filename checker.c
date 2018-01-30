@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 21:36:14 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/01/28 17:53:58 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/01/30 20:49:49 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,6 @@ static int	is_sorted(t_pile *a)
 	return (1);
 }
 
-static int	error(void)
-{
-	ft_putstr("Error\n");
-	return (1);
-}
-
 int			main(int ac, char **av)
 {
 	t_pile	*a;
@@ -41,12 +35,12 @@ int			main(int ac, char **av)
 	if ((a = parser(ac, av)) == NULL || check_duplicate(a))
 	{
 		lst_free(a);
-		return (error());
+		exit(error());
 	}
 	while (get_next_line(0, &line))
 	{
 		if (exec(line, &a, &b, 1))
-			return (error());
+			exit(error());
 	}
 	if (is_sorted(a))
 		ft_putstr("OK\n");
