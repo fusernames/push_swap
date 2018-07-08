@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 19:11:15 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/01/30 19:40:31 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/02/01 20:38:38 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void		resolve_path(t_pile *a, t_pile *b, int *path_a, int *path_b)
 
 	cost = -1;
 	i = ps_findmin(a);
-	max = i + (lst_len(a) / 4);
+	max = i + (lst_len(a));
 	while (i <= max)
 	{
 		while (i <= max && ps_findvalue(a, i, i) == -1)
