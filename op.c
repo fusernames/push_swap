@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/28 16:00:39 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/01/28 16:00:41 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/08/13 07:03:18 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	rr(t_pile **a)
 {
 	t_pile	*last;
 
-	if ((last = lst_getlast(*a)) == NULL)
+	if ((last = lst_getlast(*a)) == NULL || (*a)->next == NULL)
 		return (1);
 	last->previous->next = NULL;
 	last->previous = NULL;

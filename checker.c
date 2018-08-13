@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 21:36:14 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/01/30 20:49:49 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/08/13 07:04:09 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ int			main(int ac, char **av)
 	while (get_next_line(0, &line))
 	{
 		if (exec(line, &a, &b, 1))
-			exit(error());
+		{
+			ft_putstr("KO\n");
+			return (0);
+		}
 	}
 	if (is_sorted(a))
 		ft_putstr("OK\n");
