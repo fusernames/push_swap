@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 21:31:55 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/08/13 06:50:10 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/08/13 09:45:48 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ int		main(int ac, char **av)
 	if (ac < 2)
 		return (1);
 	if ((a = parser(ac, av)) == NULL || check_duplicate(a))
-	{
 		exit(error());
-		lst_free(a);
-	}
 	if (lst_len(a) > 10)
 		resolve(&a, &b);
 	else
