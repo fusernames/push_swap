@@ -42,7 +42,7 @@ int			main(int ac, char **av)
 		if (exec(line, &a, &b, 1))
 			exit(error());
 	}
-	if (is_sorted(a))
+	if (is_sorted(a) && !b)
 		ft_putstr("OK\n");
 	else
 		ft_putstr("KO\n");
