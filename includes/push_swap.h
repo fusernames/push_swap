@@ -18,14 +18,13 @@
 # include "get_next_line.h"
 
 typedef	struct		s_pile{
-	int					nb;
+	long				nb;
 	int					index;
 	struct s_pile		*next;
 	struct s_pile		*previous;
 }					t_pile;
 
-int					check_characters(char **av, int ac);
-int					check_duplicate(t_pile *a);
+int					check_exceptions(t_pile *a);
 t_pile				*parser(int ac, char **av);
 int					resolve(t_pile **a, t_pile **b);
 void				resolve_path(t_pile *a, t_pile *b, int *path_a,
@@ -44,7 +43,7 @@ void				ps_goto(t_pile **a, int index, char c);
 int					ps_findpath(t_pile *a, int min, int max);
 int					ps_findvalue(t_pile *a, int min, int max);
 int					ps_findindex(t_pile *a, int path);
-int					ps_atoi(char *s, int *index);
+int					ps_atoi(char *s, long *nb);
 int					ps_findmin(t_pile *a);
 int					ps_movecost(int path_a, int path_b);
 

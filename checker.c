@@ -32,7 +32,7 @@ int			main(int ac, char **av)
 	b = NULL;
 	if (ac < 2)
 		return (1);
-	if ((a = parser(ac, av)) == NULL || check_duplicate(a))
+	if ((a = parser(ac, av)) == NULL || check_exceptions(a))
 	{
 		lst_free(a);
 		exit(error());

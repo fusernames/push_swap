@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int			ps_atoi(char *s, int *nb)
+int			ps_atoi(char *s, long *nb)
 {
 	int			is_negative;
 	int			found;

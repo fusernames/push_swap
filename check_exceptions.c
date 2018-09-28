@@ -12,27 +12,7 @@
 
 #include "push_swap.h"
 
-int		check_characters(char **av, int ac)
-{
-	int	i;
-	int	j;
-
-	j = 1;
-	i = 0;
-	while (j < ac)
-	{
-		while (av[j][i])
-		{
-			if (!ft_isdigit(av[j][i]) && !ft_isspace(av[j][i]))
-				return (1);
-			i++;
-		}
-		j++;
-	}
-	return (0);
-}
-
-int		check_duplicate(t_pile *a)
+static int	check_duplicate(t_pile *a)
 {
 	t_pile	*cpy;
 
@@ -48,4 +28,25 @@ int		check_duplicate(t_pile *a)
 		a = a->next;
 	}
 	return (0);
+}
+
+static int	check_int(t_pile *a)
+{
+	while (a)
+	{
+		if (a->nb > 2147483647 || a->nb < -2147483648)
+			return (1);
+		a = a->next;
+	}
+	return (0);
+}
+
+int			check_exceptions(t_pile *a)
+{
+	int	ret;
+
+	ret = 0;
+	ret += check_duplicate(a);
+	ret += check_int(a);
+	return (ret);
 }
