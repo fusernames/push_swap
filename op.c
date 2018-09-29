@@ -17,7 +17,7 @@ int	s(t_pile **a)
 	int	tmp;
 
 	if (!(*a) || !(*a)->next)
-		return (1);
+		return (0);
 	tmp = (*a)->nb;
 	(*a)->nb = (*a)->next->nb;
 	(*a)->next->nb = tmp;
@@ -33,7 +33,7 @@ int	r(t_pile **a)
 	t_pile	*tmp;
 
 	if (*a == NULL || (*a)->next == NULL)
-		return (1);
+		return (0);
 	tmp = (*a)->next;
 	last = lst_getlast(*a);
 	last->next = *a;
@@ -49,7 +49,7 @@ int	rr(t_pile **a)
 	t_pile	*last;
 
 	if ((last = lst_getlast(*a)) == NULL || (*a)->next == NULL)
-		return (1);
+		return (0);
 	last->previous->next = NULL;
 	last->previous = NULL;
 	last->next = *a;
@@ -63,7 +63,7 @@ int	p(t_pile **a, t_pile **b)
 	t_pile	*tmp;
 
 	if (*b == NULL)
-		return (1);
+		return (0);
 	tmp = (*b)->next;
 	if (tmp)
 		tmp->previous = NULL;

@@ -12,6 +12,17 @@
 
 #include "push_swap.h"
 
+static int	is_sorted(t_pile *a)
+{
+	while (a)
+	{
+		if (a->next && a->index != a->next->index - 1)
+			return (0);
+		a = a->next;
+	}
+	return (1);
+}
+
 int		main(int ac, char **av)
 {
 	t_pile	*a;
@@ -22,9 +33,9 @@ int		main(int ac, char **av)
 		return (1);
 	if ((a = parser(ac, av)) == NULL || check_exceptions(a))
 		exit(error());
-	if (lst_len(a) > 10)
+	if (lst_len(a) > 20 && !is_sorted(a))
 		resolve(&a, &b);
-	else
+	else if (lst_len(a) <= 20 && !is_sorted(a))
 		short_resolve(&a, &b);
 	if (lst_len(a))
 		ps_goto(&a, ps_findmin(a), 'a');
@@ -32,5 +43,6 @@ int		main(int ac, char **av)
 		exec("pa", &a, &b, 0);
 	ps_goto(&a, 0, 'a');
 	lst_free(a);
+	lst_free(b);
 	return (0);
 }

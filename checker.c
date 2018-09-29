@@ -33,10 +33,7 @@ int			main(int ac, char **av)
 	if (ac < 2)
 		return (1);
 	if ((a = parser(ac, av)) == NULL || check_exceptions(a))
-	{
-		lst_free(a);
 		exit(error());
-	}
 	while (get_next_line(0, &line))
 	{
 		if (exec(line, &a, &b, 1))
@@ -47,5 +44,6 @@ int			main(int ac, char **av)
 	else
 		ft_putstr("KO\n");
 	lst_free(a);
+	lst_free(b);
 	return (0);
 }
