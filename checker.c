@@ -29,6 +29,7 @@ int			main(int ac, char **av)
 	t_pile	*b;
 	char	*line;
 
+	line = NULL;
 	b = NULL;
 	if (ac < 2)
 		return (1);
