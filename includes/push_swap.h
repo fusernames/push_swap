@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 19:59:14 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/07/08 15:30:39 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/10/09 12:09:50 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ int					r(t_pile **a);
 int					rr(t_pile **a);
 int					p(t_pile **a, t_pile **b);
 
-int					error(void);
+int					error(t_pile *a, t_pile *b);
 
 #endif

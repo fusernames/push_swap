@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 21:31:55 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/08/13 09:45:48 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/10/09 12:10:21 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	is_sorted(t_pile *a)
 	return (1);
 }
 
-int		main(int ac, char **av)
+int			main(int ac, char **av)
 {
 	t_pile	*a;
 	t_pile	*b;
@@ -32,7 +32,7 @@ int		main(int ac, char **av)
 	if (ac < 2)
 		return (1);
 	if ((a = parser(ac, av)) == NULL || check_exceptions(a))
-		exit(error());
+		exit(error(a, b));
 	if (lst_len(a) > 20 && !is_sorted(a))
 		resolve(&a, &b);
 	else if (lst_len(a) <= 20 && !is_sorted(a))

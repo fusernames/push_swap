@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 21:36:14 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/08/13 09:49:55 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/10/09 12:10:04 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ int			main(int ac, char **av)
 	if (ac < 2)
 		return (1);
 	if ((a = parser(ac, av)) == NULL || check_exceptions(a))
-		exit(error());
+		exit(error(a, b));
 	while (get_next_line(0, &line))
 	{
 		if (exec(line, &a, &b, 1))
-			exit(error());
+			exit(error(a, b));
 	}
 	if (is_sorted(a) && !b)
 		ft_putstr("OK\n");

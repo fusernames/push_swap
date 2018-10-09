@@ -6,7 +6,7 @@
 /*   By: alcaroff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 21:20:04 by alcaroff          #+#    #+#             */
-/*   Updated: 2018/07/08 15:35:01 by alcaroff         ###   ########.fr       */
+/*   Updated: 2018/10/09 12:11:52 by alcaroff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_pile			*parser(int ac, char **av)
 		{
 			a = new_elem(a);
 			if (ps_atoi(tab[j], &(a->nb)))
-				exit(error());
+				exit(error(a, NULL));
 			free(tab[j++]);
 		}
 		free(tab[j]);
