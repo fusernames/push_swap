@@ -48,7 +48,7 @@ int	rr(t_pile **a)
 {
 	t_pile	*last;
 
-	if ((last = lst_getlast(*a)) == NULL || (*a)->next == NULL)
+	if (*a == NULL || (last = lst_getlast(*a)) == NULL || (*a)->next == NULL)
 		return (0);
 	last->previous->next = NULL;
 	last->previous = NULL;

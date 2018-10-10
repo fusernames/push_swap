@@ -62,7 +62,7 @@ t_pile	*lst_free(t_pile *a)
 
 t_pile	*lst_getlast(t_pile *a)
 {
-	while (a->next)
+	while (a && a->next)
 		a = a->next;
 	return (a);
 }
